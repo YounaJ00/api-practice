@@ -9,7 +9,7 @@ const Home = () => {
         <PostForm />
       </div>
       <footer className="mt-10 text-gray-500 text-sm">
-        © 2024 게시판 시스템. All rights reserved.
+        © 2025 게시판 시스템. All rights reserved.
       </footer>
     </div>
   );
