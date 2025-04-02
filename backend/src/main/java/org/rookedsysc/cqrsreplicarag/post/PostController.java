@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +23,12 @@ public class PostController {
     @Operation(summary = "게시글 생성", description = "제목과 내용을 입력하여 새로운 게시글을 생성합니다.")
     public PostWriteResponse createPost(String title, String content) {
         return postService.createPost(title, content);
+    }
+
+    @PostMapping("v2")
+    @Operation(summary = "게시글 생성", description = "제목과 내용을 입력하여 새로운 게시글을 생성합니다.")
+    public PostWriteResponse createPost(@RequestBody PostCommand postCommand) {
+        return postService.createPost(postCommand.getTitle(), postCommand.getContent());
     }
 
     @GetMapping("/count")
