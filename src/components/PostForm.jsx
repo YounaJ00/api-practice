@@ -11,15 +11,14 @@ const PostForm = ({ onPostSuccess }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/posts",
-        // { title: title, content: content } // request body
-        {},
-        {
-          params: { // request param
-            title: title,
-            content: content,
-          }, 
-        }
+        "http://localhost:8080/posts/v2",
+        { title: title, content: content } // request body
+        // {
+        //   params: { // request param
+        //     title: title,
+        //     content: content,
+        //   }, 
+        // }
       );
       console.log("서버 응답:", response.data); // 🔍 서버 응답 확인
 
