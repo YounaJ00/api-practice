@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const PostList = () => {
+const PostList = ({refreshKey}) => { // 부모에서 받은 props 추가
   const [posts, setPosts] = useState([]); // posts를 상태로 관리
 
   useEffect(() => {
@@ -15,7 +15,7 @@ const PostList = () => {
     };
 
     fetchPosts(); // useEffect 실행 시 데이터 가져오기
-  }, []); // 컴포넌트 마운트 시 한 번만 실행
+  }, [refreshKey]); // refreshKey가 변경될 때마다 실행
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-md w-2/3">
